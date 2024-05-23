@@ -9,7 +9,7 @@ class CourseS {
 class Enrollment {
   private enrollments: { [studentId: number]: string[] } = {};
 
-  enroll(student: StudentS, course: Course): void {
+  enroll(student: StudentS, course: CourseS): void {
       if (!this.enrollments[student.id]) {
           this.enrollments[student.id] = [];
       }
@@ -25,7 +25,7 @@ class Enrollment {
       return this.enrollments[student.id] || [];
   }
 
-  isEnrolled(student: StudentS, course: Course): boolean {
+  isEnrolled(student: StudentS, course: CourseS): boolean {
       return this.enrollments[student.id]?.includes(course.code) ?? false;
   }
 }
@@ -34,8 +34,8 @@ class Enrollment {
 const student1S = new StudentS(1, 'Juan Pérez');
 const student2S = new StudentS(2, 'María García');
 
-const courseCalculoS = new Course('Calculo101', 'Calculo');
-const courseBasedeDatosS = new Course('BDD101', 'BasedeDatos');
+const courseCalculoS = new CourseS('Calculo101', 'Calculo');
+const courseBasedeDatosS = new CourseS('BDD101', 'BasedeDatos');
 
 const enrollment = new Enrollment();
 
